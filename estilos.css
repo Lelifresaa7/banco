@@ -1,0 +1,41 @@
+font-face {
+    font-family: myfirstFont;
+    src: url(sesation_ligth.woff);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: myfirstFont;
+}
+body{
+    
+    text-align: center;
+    color: white;
+    background: rgb(170,85,143);
+background: linear-gradient(90deg, rgba(170,85,143,1) 5%, rgba(223,140,178,1) 46%, rgba(215,195,217,1) 80%);
+}
+h1{
+    font-size: 60px;
+    text-shadow: 0 0 10px rgb(224, 149, 208);
+}
+a{
+    display: block;
+    color: blanchedalmond;
+    text-decoration: none;
+    width: 250px;
+    height: 100px;
+    margin: 10px;
+    background: lightpink;
+    border-radius: 5px;
+    padding: 10px;
+}
+ a:hover{
+    box-shadow: 0 0 0 5px whitesmoke;
+    border: solid palevioletred;
+    background: rgb(161, 95, 128);
+    color: black;
+    transform: scale(1,1);
+ }
+

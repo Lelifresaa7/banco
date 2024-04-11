@@ -1,0 +1,20 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: 2s all ease;
+}
+
+#cajita{
+    width: 10px;
+    height: 10px;
+    border: 0px;
+    background: gray;
+}
+
+#caja1{
+    width: 800px;
+    height: 800px;
+    border: 3px solid black;
+    background: none;
+}

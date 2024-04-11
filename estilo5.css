@@ -1,0 +1,10 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+#cajita{
+    border: solid;
+    width: 10px;
+    height: 10px;
+}
