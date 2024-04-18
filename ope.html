@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <title>Chicharronera</title>
+</head>
+
+<style>
+    .slider {
+  -webkit-appearance: none;
+  width: 90%;
+  height: 15px;
+  border-radius: 10px;
+  background: pink;
+  opacity: 0.6;
+
+}
+h1, td {
+        border: 1px solid pink;
+        padding: 10px;
+        
+        
+    }
+</style>
+<body class="text-center">
+
+
+    <h1>La chicharronera</h1>
+      <center>
+        <label for="valor a:"> a:</label>
+        <input type="range" id="an" value="0" min="0" max="20"  class="slider">
+        <div id="va">0</div>
+
+        <label for="valor b:">b:</label>
+        <input type="range"  id="bn" value="0" min="0" max="20" class="slider">
+        <div id="vb">0</div>
+
+<label for="c:">c:</label>
+        <input type="range" id="cn" value="0" min="0" max="20" class="slider">
+        <div id="vc">0</div>
+
+<br><br><br>
+<div id="ale"></div>
+
+      <h4>X1</h4>
+<h1 id="x1"></h1>
+<div id="s1"></div>
+      <br><br>
+      
+      <h4>X2</h4>
+     
+<h1 id="x2"></h1>
+<div id="s2"></div>
+
+      
+<h1 id="fac"></h1>
+<div id="s3"></div>
+
+    </center>
+
+    <script src="operacion.js"></script>
+    
+</body>
+</html>

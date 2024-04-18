@@ -1,0 +1,23 @@
+.slider {
+  -webkit-appearance: none;
+  width: 90%;
+  height: 15px;
+  border-radius: 10px;
+  background: pink;
+  opacity: 0.6;
+
+}
+table {
+        border-collapse: collapse;
+    }
+
+    table, th, td {
+        border: 1px solid pink;
+        padding: 8px;
+        
+        
+    }
+    h2{
+      background: pink;
+        opacity: 0.7;
+    }

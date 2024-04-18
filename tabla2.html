@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tabla </title>
+<link rel="stylesheet" href="/bootstrap.min.css">
+    <link rel="stylesheet" href="tablita.css">
+
+</head>
+
+<style>
+    .slider {
+  -webkit-appearance: none;
+  width: 90%;
+  height: 15px;
+  border-radius: 10px;
+  background: pink;
+  opacity: 0.6;
+
+}
+table {
+        border-collapse: collapse;
+    }
+
+    table, th, td {
+        border: 1px solid pink;
+        padding: 10px;
+        
+        
+    }
+    h2{
+      background: pink;
+        opacity: 0.7;
+    }
+</style>
+<body class="text-center">
+
+<h2>Tablita</h2>
+
+<h4 for="filas">Filas:</h4>
+<input type="range" id="filas" name="filas" min="1" max="50" value="5" class="slider">
+<div id="resultado1">4</div>
+<br><br>
+
+<h4 for="columnas">Columnas</h4>
+<input type="range" id="columnas"  min="1" max="50" value="5" class="slider">
+<div id="resultado2">4</div>
+<br><br>
+
+<label for="colorPar">Color 1</label>
+<input type="color" id="par" name="par" value="pink">
+<br><br>
+
+<label for="impar">Color 2</label>
+<input type="color" id="impar" name="impar" value="#pink">
+<br><br>
+
+<div id="resultado3"></div>
+
+<script src="tabla2.js"></script>
+
+</body>
+</html>

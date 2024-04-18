@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tabla Dinámica</title>
+    <link rel="stylesheet" href="/bootstrap.min.css">
+    <link rel="stylesheet" href="tablita.css">
+
+</head>
+<body class="text-center">
+
+<h2>Tablita</h2>
+
+<h4 >Filas:</h4>
+
+<input type="range" id="filas" name="filas" min="1" max="100" value="10" class="slider" class="form-control" oninput="fi()">
+
+<span id="resultado1">10</span>
+<br><br>
+
+<h4 >Columnas:</h4>
+
+<input type="range" id="columnas" name="columnas" min="1" max="100" value="10" class="slider" class="form-control" oninput="co()">
+
+<span id="resultado2">10</span>
+
+<br><br>
+
+<div id="resultado3"></div>
+
+
+
+<script src="tablitita.js" >
+
+
+  
+</script>
+
+</body>
+</html>

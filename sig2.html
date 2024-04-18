@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+      <link rel="stylesheet" href="/bootstrap.min.css">
+      <link rel="stylesheet" href="signos.css">
+</head>
+<body class="text-center">
+    <h1>SIGNO ZODIACAL</h1>
+    <h3 >Día:</h3>
+    <input type="range" id="dia" min="1" max="31" value="1" class="form-control" oninput="signo()">
+    <br>
+    
+    <div id="vdia">1</div>
+    <br><br>
+    
+    <h3 >Mes:</h3>
+    
+    
+    
+    <select id="mes" class="form-control" onchange="signo()">
+        <option value="enero">Enero</option>
+        <option value="febrero">Febrero</option>
+        <option value="marzo">Marzo</option>
+        <option value="abril">Abril</option>
+        <option value="mayo">Mayo</option>
+        <option value="junio">Junio</option>
+        <option value="julio">Julio</option>
+        <option value="agosto">Agosto</option>
+        <option value="septiembre">Septiembre</option>
+        <option value="octubre">Octubre</option>
+        <option value="noviembre">Noviembre</option>
+        <option value="diciembre">Diciembre</option>
+    </select>
+    <br><br>
+    
+    
+    <div id="fecha">  </div>
+    
+    
+    
+<div id="signo" class="carta"> <img src="/37e4bc271ce3f710ef7c556d918616c6.jpg" width="400" height="300" id="img"> </div>
+
+    <script src="ohs.js"> </script>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,14 @@
+img{
+  width: 100%;
+}
+div{
+  font-size: 35px;
+  font-weight: bold;
+}
+body{
+    
+    text-align: center;
+    color: white;
+    background: rgb(170,85,143);
+background: rgba(242, 214, 228, 0.97);
+}
