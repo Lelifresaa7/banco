@@ -6,57 +6,60 @@
     <link rel="stylesheet" href="bootstrap.min.css">
     <title>Chicharronera</title>
 </head>
-
 <style>
     .slider {
   -webkit-appearance: none;
   width: 90%;
   height: 15px;
   border-radius: 10px;
-  background: pink;
+  background: lightblue;
   opacity: 0.6;
 
 }
-h1, td {
-        border: 1px solid pink;
-        padding: 10px;
-        
-        
+h1{
+      background: lightcyan;
+        opacity: 0.7;
     }
 </style>
 <body class="text-center">
 
-
     <h1>La chicharronera</h1>
+
       <center>
-        <label for="valor a:"> a:</label>
-        <input type="range" id="an" value="0" min="0" max="20"  class="slider">
+        <img src="/Screenshot_20240418-114145.jpg" alt="/Screenshot_20240418-114145.jpg" height=180px width="430">
+        
+        <label for="a:">a:</label>
+        <input type="range" id="an" value="0" min="-20" max="20"  class="slider">
         <div id="va">0</div>
 
-        <label for="valor b:">b:</label>
-        <input type="range"  id="bn" value="0" min="0" max="20" class="slider">
+        <label for="b:">b:</label>
+        <input type="range"  id="bn" value="0" min="-20" max="20" class="slider">
         <div id="vb">0</div>
 
-<label for="c:">c:</label>
-        <input type="range" id="cn" value="0" min="0" max="20" class="slider">
+        <label for="c">c</label>
+        <input type="range" id="cn" value="0" min="-20" max="20" class="slider">
         <div id="vc">0</div>
 
-<br><br><br>
-<div id="ale"></div>
-
-      <h4>X1</h4>
-<h1 id="x1"></h1>
-<div id="s1"></div>
+        
+<br><br>
+<h4>Ecuacion:</h4>
+<div id="ecu"></div>
+<div id="s2"></div>
+<br>
+      <h4>Resultado 1:</h4>
+<div id="x1"></div>
+<div id="s2"></div>
       <br><br>
       
-      <h4>X2</h4>
+      <h4>Resultado 2:</h4>
      
-<h1 id="x2"></h1>
+<div id="x2"></div>
 <div id="s2"></div>
 
-      
-<h1 id="fac"></h1>
-<div id="s3"></div>
+
+      <div id="fac"></div>
+
+
 
     </center>
 
