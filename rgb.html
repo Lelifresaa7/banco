@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href="bootstrap.min.css">
+   <link rel="stylesheet" href="style.css">
+  <title></title>
+  
+</head>
+<style>
+    .slider1 {
+  -webkit-appearance: none;
+  width: 90%;
+  height: 15px;
+  
+  border-radius: 10px;
+  background:red;
+  
+
+}
+ .slider2 {
+  -webkit-appearance: none;
+  width: 90%;
+  height: 15px;
+  border-radius: 10px;
+  background: green;
+  
+
+}
+ .slider3 {
+  -webkit-appearance: none;
+  width: 90%;
+  height: 15px;
+  border-radius: 10px;
+  background: dodgerblue;
+  
+
+}
+h1{
+      background: white;
+        opacity: 0.7;
+    }
+    
+
+</style>
+
+<body class="text-center">
+
+
+<h1>RGB</h1>
+
+   <label for="rojo:">Rojo:</label>
+        <input type="range" id="rojo" value="0" min="0" max="255"  class="slider1">
+        <div id="resultado1">10</div>
+        
+   <label for="verde:">verde:</label>
+        <input type="range" id="verde" value="0" min="0" max="255"  class="slider2">
+        <div id="resultado2">10</div>
+        
+           <label for="azul:">Azul:</label>
+        <input type="range" id="azul" value="0" min="0" max="255"  class="slider3">
+        <div id="resultado3">10</div>
+
+<br>
+<div id="resultado4">(10,10,10)</div>
+<br>
+<div id="resultado5"></div>
+<br>
+<div id="resultado6" class="tres"></div>
+
+<script  >
+  const me=()=>{
+  
+    var rojo = document.getElementById("rojo").value;
+    var verde = document.getElementById("verde").value;
+    var azul = document.getElementById("azul").value;
+    
+    var resultado5=document.querySelector("#resultado5")
+    
+    document.getElementById("resultado4").innerText = "("+rojo+","+verde+","+azul+")" ;
+    
+
+    resultado6.style.backgroundColor="rgb(" + rojo + "," + verde + "," + azul + ")";
+  
+  const cexa=(resultado4)=>{
+    let res=(resultado4>16)?resultado4.toString(16).toUpperCase():"0"+resultado4.toString(16).toUpperCase();
+    return res;
+
+  } 
+  
+  setTimeout(()=>{
+
+    resultado5.innerHTML="#"+cexa(rojo)+cexa(verde)+cexa(azul)
+        
+},500);
+
+
+        }
+
+            
+  
+  document.getElementById("rojo").addEventListener("input", function() {
+      document.getElementById("resultado1").textContent = this.value;
+      me();
+  });
+  
+  
+  
+  document.getElementById("verde").addEventListener("input", function() {
+      document.getElementById("resultado2").textContent = this.value;
+      me();
+  });
+  
+  document.getElementById("azul").addEventListener("input", function() {
+      document.getElementById("resultado3"
+      ).textContent = this.value;
+      me();
+  });
+  
+  
+</script>
+</body>
+
+</html>

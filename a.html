@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selector de Color</title>
+    <style>
+        #color-container {
+            width: 200px;
+            height: 200px;
+            border: 1px solid black;
+            margin: 20px auto;
+        }
+    </style>
+</head>
+<body>
+    <label for="red">Red:</label>
+    <input type="range" id="red" min="0" max="255" value="0" oninput="updateColor()">
+    <br>
+    <label for="green">Green:</label>
+    <input type="range" id="green" min="0" max="255" value="0" oninput="updateColor()">
+    <br>
+    <label for="blue">Blue:</label>
+    <input type="range" id="blue" min="0" max="255" value="0" oninput="updateColor()">
+    <br>
+    <div id="color-container"></div>
+    <p id="rgba-output"></p>
+    <p id="hex-output"></p>
+
+    <script>
+        function updateColor() {
+            var red = document.getElementById('red').value;
+            var green = document.getElementById('green').value;
+            var blue = document.getElementById('blue').value;
+
+            // Actualizar color en formato RGBA
+            var rgbaColor = 'rgba(' + red + ', ' + green + ', ' + blue + ', 1)';
+            document.getElementById('color-container').style.backgroundColor = rgbaColor;
+
+            // Mostrar el color en formato RGBA
+            document.getElementById('rgba-output').innerText = 'Color en RGBA: ' + rgbaColor;
+
+            // Convertir el color a formato hexadecimal
+            var hexColor = rgbToHex(red, green, blue);
+            
+            // Mostrar el color en formato hexadecimal
+            document.getElementById('hex-output').innerText = 'Color en Hexadecimal: ' + hexColor;
+        }
+
+        function rgbToHex(r, g, b) {
+            return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
+        }
+
+        function componentToHex(c) {
+            var hex = (c > 16) ? c.toString(16).toUpperCase() : "0" + c.toString(16).toUpperCase();
+            return hex;
+        }
+    </script>
+</body>
+</html>

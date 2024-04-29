@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Promedio de valores</title>
+<style>
+    label {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    #resultado {
+        margin-top: 20px;
+    }
+</style>
+</head>
+<body>
+
+<h2>Calculadora de promedio</h2>
+
+<form id="sliderForm">
+    <label for="slider1">Valor 1: <span id="valorSlider1">50</span></label>
+    <input type="range" id="slider1" name="slider1" min="0" max="100" value="50" oninput="actualizarValor(this, 'valorSlider1')"><br>
+    
+    <label for="slider2">Valor 2: <span id="valorSlider2">50</span></label>
+    <input type="range" id="slider2" name="slider2" min="0" max="100" value="50" oninput="actualizarValor(this, 'valorSlider2')"><br>
+    
+    <label for="slider3">Valor 3: <span id="valorSlider3">50</span></label>
+    <input type="range" id="slider3" name="slider3" min="0" max="100" value="50" oninput="actualizarValor(this, 'valorSlider3')"><br>
+    
+    <label for="slider4">Valor 4: <span id="valorSlider4">50</span></label>
+    <input type="range" id="slider4" name="slider4" min="0" max="100" value="50" oninput="actualizarValor(this, 'valorSlider4')"><br>
+    
+    <label for="slider5">Valor 5: <span id="valorSlider5">50</span></label>
+    <input type="range" id="slider5" name="slider5" min="0" max="100" value="50" oninput="actualizarValor(this, 'valorSlider5')"><br>
+</form>
+
+<div id="resultado"></div>
+
+<script>
+    function actualizarValor(slider, spanId) {
+        document.getElementById(spanId).textContent = slider.value;
+        calcularPromedio();
+    }
+
+    function calcularPromedio() {
+        var slider1 = parseInt(document.getElementById('slider1').value);
+        var slider2 = parseInt(document.getElementById('slider2').value);
+        var slider3 = parseInt(document.getElementById('slider3').value);
+        var slider4 = parseInt(document.getElementById('slider4').value);
+        var slider5 = parseInt(document.getElementById('slider5').value);
+
+        var promedio = (slider1 + slider2 + slider3 + slider4 + slider5) / 5;
+
+        var resultadoDiv = document.getElementById("resultado");
+        resultadoDiv.innerHTML = "Promedio de los valores: " + promedio.toFixed(2);
+
+        // Dependiendo del promedio, mostrar una imagen
+        var imagen = document.createElement("img");
+        if (promedio >= 70) {
+            imagen.src = "https://via.placeholder.com/150?text=Excelente";
+            imagen.alt = "Excelente";
+        } else if (promedio >= 50) {
+            imagen.src = "https://via.placeholder.com/150?text=Aprobado";
+            imagen.alt = "Aprobado";
+        } else {
+            imagen.src = "https://via.placeholder.com/150?text=Reprobado";
+            imagen.alt = "Reprobado";
+        }
+
+        // Limpiar el div antes de agregar la imagen para evitar duplicados
+        while (resultadoDiv.firstChild) {
+            resultadoDiv.removeChild(resultadoDiv.firstChild);
+        }
+        resultadoDiv.appendChild(imagen);
+    }
+</script>
+
+</body>
+</html>

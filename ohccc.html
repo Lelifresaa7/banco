@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bootstrap.bundle.min.js">
+    <link rel="stylesheet" href="bootstrap.bundle.min.js">
+    <title>Fresitienda</title>
+</head>
+<body class="text-center" onload="cargarProductos();">
+    
+    <nav class="navbar navbar-red bg-red">
+        <div class="container-fluid text-center">
+            <h1 class=" navbar-brand m-auto">Tiendita nicles</h1>
+        </div>
+    </nav>
+
+    <div class="container-fluid w-75 m-auto">
+        <div class="card text-center mt-4">
+            <div class="card-header">
+                <img src="fresa.png" alt="" height="70px">
+            </div>
+            <div class="card-body">
+                <table class="table w-50 m-auto">
+                    <tr>
+                        <td>
+                            <button class="btn btn-warning" data-bs-toggle="modal" onclick="verProductos()"  data-bs-target="#gestionProductos"></button>
+                        </td>
+                        <td>
+                            <h2>Producto</h2>
+                        </td>
+                        <td>
+                            <h2>Imagen</h2>
+                        </td>
+                        <td>
+                            <h2>Precio</h2>
+                        </td>
+                        <td>
+                            <h2>Cantidad</h2>
+                        </td>
+                        <td>
+                            <h2>Agregar</h2>
+                        </td>
+                    </tr>
+                    <tr> 
+            
+                        <td class="align-midle">
+                            <select name="producto" id="productos" class="form-control">
+                            </select>
+                        </td>
+                        <td class="align-midle">
+                            <img src="tiendal.png" alt="" id="imgProducto" height="80px">
+                        </td>
+                        <td class="align-midle"><h1 id="precioProducto">$0</h1></td>
+                        <td class="align-midle">
+                            <h1 id="vcantidad">1</h1>
+                            <input type="range" min="1" max="10" value="1" class="form-control" id="inputCantidad">
+                        </td>
+                        <td class="align-midle">
+                            <button class="btn btn-danger" id="agregarCarrito">Agregar</button>
+                        </td>
+                        <td>
+                            <button class="btn btn-primary" id="btnPagar" onclick="realizarPago()">Pagar</button>
+                        </td>
+
+                    </tr>
+                </table>
+                <div id="carrito"></div>
+            </div>
+            <div class="card-footer text-body-secondary">
+                Leslie Zoe
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="gestionProductos" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">Gestionar productos</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+
+<div id="listaProductos">
+<h1>Gestion</h1>
+</div>
+
+
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+              <button type="button" class="btn btn-primary">Guardar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+<script src="sweetalert2.all.min.js"></script> 
+<script src="bootstrap.bundle.min.js"></script>
+<script>
+  
+  var productos = ["fabuloso", "arcoiris", "grade", "mazapan", "roles", "fanta", "principe", "zote"];
+    var precios = [23, 18, 23, 6, 19, 17, 24, 11];
+
+    var selectProductos = document.getElementById("productos");
+    var imgProductos = document.getElementById("imgProducto");
+    var precioProductos = document.getElementById("precioProducto");
+    var inputCantidad = document.getElementById("inputCantidad");
+    var agregarCarrito = document.getElementById("agregarCarrito");
+
+    var carrito = [];
+
+    var posProducto = -1;
+    var cantidadProducto = 0;
+
+
+
+
+
+    const cargarProductos = () => {
+        let optionProductos = "";
+        productos.forEach((producto) => {
+            optionProductos += `<option value="${producto}">${producto.toUpperCase()}</option>`;
+        })
+        selectProductos.innerHTML = optionProductos;
+        cargarPrecio();
+    }
+
+    selectProductos.onchange = () => {
+        cargarPrecio();
+    }
+
+    const cargarPrecio = () => {
+        imgProductos.src = `${selectProductos.value.toLowerCase()}.jpeg`;
+        precioProductos.innerHTML = `$ ${precios[selectProductos.selectedIndex]}`;
+        posProducto = selectProductos.selectedIndex;
+    }
+
+    inputCantidad.oninput = () => {
+        document.getElementById("vcantidad").innerHTML = inputCantidad.value;
+        cantidadProducto = parseInt(inputCantidad.value);
+    }
+
+    agregarCarrito.onclick = () => {
+        cantidadProducto = parseInt(inputCantidad.value);
+        posProducto = selectProductos.selectedIndex;
+        if (checarItem(posProducto, cantidadProducto)) {
+            imprimirTabla();
+        } else {
+            let item = new Array()
+            item.push(posProducto);
+            item.push(cantidadProducto);
+            carrito.push(item);
+            imprimirTabla();
+        }
+
+    }
+
+    const checarItem = (pos, cant) => {
+        let x = false;
+        carrito.forEach(item => {
+            if (item[0] == pos) {
+                item[1] = item[1] + cant;
+                x = true;
+            }
+        });
+        return x;
+    }
+
+    const calcularTotal = () => {
+        let total = 0;
+        carrito.forEach(item => {
+            total += precios[item[0]] * item[1];
+        });
+        return total;
+    }
+
+    const imprimirTabla = () => {
+        let total = calcularTotal();
+        let divCarrito = document.getElementById("carrito");
+        let tablaHTML = `<table class="table w-100 m-auto">
+            <tr>
+                <td>PRODUCTO</td>
+                <td>PRECIO</td>
+                <td>CANTIDAD</td>
+                <td>IMPORTE</td>
+                <td>Del</td>
+            </tr>`;
+
+
+
+        let index = 0;
+        carrito.forEach(item => {
+            tablaHTML += `
+            <tr>
+                <td>${productos[item[0]]}</td>
+                <td>$ ${precios[item[0]]}.00</td>
+                <td>${item[1]}</td>
+                <td>$${precios[item[0]] * item[1]}.00</td>
+                <td><button class="btn btn-danger" onclick="eliminarProducto(${index})">Del</button></td>
+            </tr>`;
+            index++;
+        });
+        tablaHTML += `
+            <tr>
+                <td></td>
+                <td></td>
+                <td><h3>TOTAL</h3></td>
+                <td><h3>$ ${total}.00</h3></td>
+            </tr>`;
+        divCarrito.innerHTML = tablaHTML;
+    }
+
+    const eliminarProducto = (index) => {
+        Swal.fire({
+            title: "¿Estás seguro de querer borrarlo?",
+            showDenyButton: true,
+            showCancelButton: false,
+            confirmButtonText: "Salvar",
+            denyButtonText:` No salvar`
+        }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire("¡Guardado!", "", "success");
+                carrito.splice(index, 1);
+                imprimirTabla();
+            }
+        });
+    }
+
+const realizarPago = () => {
+    Swal.fire({
+        title: 'Ingrese con cuánto pagará:',
+        input: 'text',
+        showCancelButton: true,
+        confirmButtonText: 'Pagar',
+        cancelButtonText: 'Cancelar',
+        inputValidator: (value) => {
+            if (!value || isNaN(value) || parseFloat(value) <= 0) {
+                return 'Por favor ingrese un monto válido.';
+            }
+            const montoPago = parseFloat(value);
+            const total = calcularTotal();
+            if (montoPago < total) {
+                return 'Pobre.';
+            }
+        }
+    }).then((result) => {
+        if (result.isConfirmed) {
+            const montoPago = parseFloat(result.value);
+            const total = calcularTotal();
+            const cambio = montoPago - total;
+            Swal.fire(`Pago recibido: ${montoPago}, cambio: ${cambio}`);
+        }
+    });}
+
+
+
+
+    const verProductos=()=>{
+    total=0;
+   let divListaProductos=document.getElementById("listaProductos");
+   let tablaHTML= `<table class="table w-100 m-auto">
+   <tr>
+   <td>PRODUCTO</td>
+   <td>PRECIO</td>
+   <td>CANTIDAD</td>
+   
+   
+   </tr>
+   `;
+   let index=0;
+   productos.forEach(item=>{
+       tablaHTML+=`
+       <tr>
+       <td>${item}</td>
+       <td>$ ${precios[index]}.00</td>
+       <td><button class="btn btn-danger" onclick="eliminarProducto(${index})">del</button></td>
+       </tr>
+       `
+       index++;
+       
+   })
+  
+   divListaProductos.innerHTML=tablaHTML;
+}
+
+</script>

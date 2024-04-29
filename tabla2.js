@@ -15,6 +15,7 @@ function co() {
     }
 
     tabla += "</table>";
+    
 
     document.getElementById("resultado3").innerHTML = tabla;
 }
