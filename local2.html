@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  <link rel="stylesheet" href="bootstrap.min.css">
+</head>
+
+<body class="text-center">
+<br>
+<label >Nombre:</label>
+<input type="text" name="" value=""  id="nombre" >
+<br> <br>
+<label >A.Paterno:</label>
+<input type="text" name="" value=""  id="apaterno">
+<br><br>
+
+
+<label >A.Materno:</label>
+<input type="text" name="" value=""  id="amaterno">
+<br><br>
+
+<label >Grupo:</label>
+          <select name="combo1" id="combo1">
+            <option value="405">405</option>
+            <option value="202">202</option>
+            <option value="407">407</option>
+          </select>
+<br><br>
+
+<label >Carrera:</label>
+    <select id="combo2" name="combo2">
+            <option value="programacion">programacion</option>
+            <option value="maquinas">maquinas</option>
+            <option value="ventas">ventas</option>
+          </select>
+<br><br>
+
+<button type="" id="agregar"  class="btn btn-primary">Agregar</button>
+
+
+<script >
+  
+
+var agregar=document.getElementById("agregar");
+
+
+var nombre=document.querySelector("#nombre").value;
+var apaterno=document.querySelector("#apaterno").value;
+var amaterno=document.querySelector("#amaterno").value;
+
+var combo1=document.querySelector("#combo1").value;
+var combo2=document.querySelector("#combo2").value;
+
+var alumnos=new Array()
+
+
+var alumno = {nombre,apaterno,amaterno,combo1,combo2}
+
+alumnos.push(alumno)
+agregar.onclick=()=>{
+  
+  
+localStorage.setItem("alumnos",alumno);
+
+}
+
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+  
+</script >
+</body>
+
+</html>

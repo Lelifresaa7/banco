@@ -13,6 +13,7 @@ var cantidadProducto=0;
 let total=0;
 
 
+
 const cargarProductos=()=>{
     let optionProductos="";
     productos.forEach((producto) => {
@@ -69,6 +70,7 @@ const imprimirTabla=()=>{
     let divCarrito=document.getElementById("carrito");
     let tablaHTML= `<table class="table w-100 m-auto">
     <tr>
+    
     <td>PRODUCTO</td>
     <td>PRECIO</td>
     <td>CANTIDAD</td>

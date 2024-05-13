@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+</head>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="bootstrap.min.css">
+<body class="text-center">
+
+  
+  
+  <label for="Nombre">Nombre</label>
+<input type="text" id="nombre" >
+<br><br>
+  <label for="Nombre">Apellido.p</label>
+<input type="text" id="app" >
+<br><br>
+
+  <label for="Nombre">Apellido.m</label>
+<input type="text" id="apm" >
+<br>
+<br><br>
+<select name="grupo" id="grup"  class="align-midle">
+  <option value="405">405</option>
+    <option value="406">406</option>
+      <option value="407">407</option>
+</select>
+<br>
+<br>
+
+<select name="car" id="car" class="aling-midle">
+    <option value="programacion">programacion</option>
+    <option value="ventas">ventas</option>
+      <option value="maquinas">maquinas</option>
+   </select>
+
+<br><br />
+  <button  class="btn btn-primary" id="guardar">Guardar</button>
+
+<div id="res">
+  
+</div>
+
+<script src="sweetalert2.all.min.js"></script>
+<script src="bootstrap.min.js"></script>
+<script>
+  var alumnos=new Array();
+var saves=document.getElementById("guardar");
+var btnb= document.getElementById("borrar")
+
+
+
+ guardar.onclick=()=>{
+let nombre=document.getElementById("nombre").value;
+let app=document.getElementById("app").value
+let apm=document.getElementById("apm").value
+let grup=document.getElementById("grup").value
+let car=document.getElementById("car").value
+if (nombre.trim()=="" || app.trim()=="" || apm.trim()=="") {
+  Swal.fire({
+    title:"Alumnos",
+    text:"Falta llenar campos",
+    icon:"error"
+  })
+return;  
+}
+let alumno={nombre,app,apm,grup,car};
+alumnos.push(alumno);
+localStorage.setItem("alumnos",JSON.stringify(alumnos));
+limpiarForm();
+imprimirTabla();
+}
+
+const imprimirTabla=()=>{
+  var x=(JSON.parse(localStorage.getItem("alumnos"))==null)?[]:JSON.parse(localStorage.getItem("alumnos"));
+  let tablaHTML=`
+  <table class="table w-100 m-auto">
+  <tr>
+  <td>Nombre</td>
+  <td>A Paterno</td>
+  <td>A Materno</td>
+  <td>Grupo</td>
+  <td>Carrera</td>
+  <td>DEL</td>
+  </tr>
+  `;
+  let index=0;
+  x.forEach(alumno=>{
+    tablaHTML+=`
+      <tr>
+  <td>${alumno.nombre}</td>
+  <td>${alumno.app}</td>
+  <td>${alumno.apm}</td>
+  <td>${alumno.grup}</td>
+  <td>${alumno.car}</td>
+  <td><button class="btn btn-danger" onclick="eliminarAlumno(${index})"><i class="bi bi-trash"></i>DEL</button></td>
+  </tr>
+    `
+    index++
+   
+  })
+  
+  
+  
+  
+  document.getElementById("res").innerHTML=tablaHTML;
+  
+}
+
+const limpiarForm =()=>{
+document.getElementById("nombre").value="";
+document.getElementById("app").value="";
+document.getElementById("apm").value="";
+document.getElementById("grup").selectedIndex=0
+document.getElementById("car").selectedIndex=0
+} 
+imprimirTabla();
+
+eliminarAlumno=(index)=>{
+  Swal.fire({
+  title: "estas seguro de eliminar?",
+  showDenyButton: true,
+  showCancelButton: false,
+  confirmButtonText: "si",
+  denyButtonText: `No`
+}).then((result) => {
+  
+  if (result.isConfirmed) {
+
+  alumnos.splice(index,1);
+  localStorage.setItem("alumnos", JSON.stringify(alumnos));
+  imprimirTabla();
+  
+  Swal.fie("Eliminado","","success");
+}
+});
+}
+</script>
+
+</body>
+
+</html>
+
+

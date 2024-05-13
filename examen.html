@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pedido de Pizzas</title>
+</head>
+<body>
+
+<h2>Realiza tu pedido de pizzas</h2>
+
+<button onclick="solicitarTipoPizza()">Seleccionar Tipo de Pizza</button>
+<button onclick="solicitarTamañoYCosto()">Seleccionar Tamaño y Costo</button>
+
+<label for="cantidad">Cantidad de pizzas:</label>
+<input type="range" id="cantidad" min="1" max="10" value="1">
+
+<button onclick="agregarPedido()">Agregar</button>
+
+<table id="tablaPedidos">
+  <tr>
+    <th>Número de orden</th>
+    <th>Tipo de pizza</th>
+    <th>Cantidad</th>
+    <th>Tamaño</th>
+    <th>Costo</th>
+    <th>Eliminar</th>
+  </tr>
+</table>
+
+<p id="total"></p>
+
+<script>
+let pedidos = [];
+let numeroOrden = 1;
+let tipoPizzaSeleccionado = "";
+let tamañoPizzaSeleccionado = "";
+let costoPizzaSeleccionado = 0;
+
+function solicitarTipoPizza() {
+  tipoPizzaSeleccionado = prompt("Ingrese el tipo de pizza (margarita, pepperoni, vegetariana):");
+}
+
+function solicitarTamañoYCosto() {
+  tamañoPizzaSeleccionado = prompt("Ingrese el tamaño de la pizza (pequeña, mediana, grande):");
+  costoPizzaSeleccionado = parseFloat(prompt("Ingrese el costo de la pizza:"));
+}
+
+function agregarPedido() {
+  const cantidad = document.getElementById("cantidad").value;
+
+  if (tipoPizzaSeleccionado !== "" && tamañoPizzaSeleccionado !== "" && costoPizzaSeleccionado > 0) {
+    const costoTotal = costoPizzaSeleccionado * cantidad;
+
+    const pedido = {
+      numeroOrden: numeroOrden,
+      tipoPizza: tipoPizzaSeleccionado,
+      cantidad: cantidad,
+      tamañoPizza: tamañoPizzaSeleccionado,
+      costo: costoTotal
+    };
+
+    pedidos.push(pedido);
+    numeroOrden++;
+
+    mostrarPedidos();
+  } else {
+    alert("Por favor, complete todos los campos antes de agregar el pedido.");
+  }
+}
+
+function mostrarPedidos() {
+  const tablaPedidos = document.getElementById("tablaPedidos");
+  tablaPedidos.innerHTML = `
+    <tr>
+      <th>Número de orden</th>
+      <th>Tipo de pizza</th>
+      <th>Cantidad</th>
+      <th>Tamaño</th>
+      <th>Costo</th>
+      <th>Eliminar</th>
+    </tr>
+  `;
+
+  let total = 0;
+
+  pedidos.forEach((pedido, index) => {
+    total += pedido.costo;
+    tablaPedidos.innerHTML += `
+      <tr>
+        <td>${pedido.numeroOrden}</td>
+        <td>${pedido.tipoPizza}</td>
+        <td>${pedido.cantidad}</td>
+        <td>${pedido.tamañoPizza}</td>
+        <td>${pedido.costo}</td>
+        <td><button onclick="eliminarPedido(${index})">Eliminar</button></td>
+      </tr>
+    `;
+  });
+
+  document.getElementById("total").textContent = `Total: $${total.toFixed(2)}`;
+}
+
+function eliminarPedido(index) {
+  pedidos.splice(index, 1);
+  mostrarPedidos();
+}
+</script>
+
+</body>
+</html>
