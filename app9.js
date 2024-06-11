@@ -23,5 +23,6 @@ document.querySelector("#borrar").onclick=()=>{
   tabla.innerHTML="";
 }
 
+
   
 }

@@ -14,6 +14,7 @@ numero.oninput=()=>{
 
 
 
+
 document.querySelector("#borrar").onclick=()=>{
   tabla.innerHTML="";
 }

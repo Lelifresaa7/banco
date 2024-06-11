@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="bootstrap.min.css">
+  <title>Categorias</title>
+</head>
+<body>
+  
+  <nav class="navbar navbar-light bg-light">
+    <div class="container-fluid text-center">
+        <h1 class="navbar-brand m-auto text-dark">Leli y Vic</h1>
+    </div>
+</nav>
+
+<div class="container-fluid w-75 m-auto">
+  <div class="card text-center mt-4">
+    <div class="card-header">
+      TIENDITA
+    </div>
+    <hr>
+    <table>
+      <tr>
+        <td><button class="btn btn-primary w-50" data-bs-toggle="modal" data-bs-target="#ModalTipo">Categorias</button></td>
+        <td><a href="productos.html"><button class="btn btn-primary w-50">Productos</button></a></td>
+      </tr>
+    </table>
+    <br>
+    <div id="res"> </div>
+    <br><br>
+    <div class="card-footer text-body-secondary">
+      Lesli y Vics
+    </div>
+  </div>
+</div>
+
+<!-- Modal para agregar categoría -->
+<div class="modal fade" id="ModalTipo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5 m-auto" id="exampleModalLabel">Agregar</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label class="form-label">Categorias</label>
+            <input type="text" class="form-control" id="nombre">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary" id="guardar">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal para editar categoría -->
+
+<div class="modal fade" id="ModalEditTipo" tabindex="-1" aria-labelledby="exampleEditLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5 m-auto" id="exampleEditLabel">Editar</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label class="form-label">Editar Categoría</label>
+            <input type="text" class="form-control" id="editNombre">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary" id="guardarEdit">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<script src="sw"></script>
+<script src="bostrap.min.bucle.js"></script>
+<script src="nuevo.js"></script>
+</body>
+</html>

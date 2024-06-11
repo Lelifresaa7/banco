@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comp store</title>
+    <link rel="stylesheet" href="bootstrap.min.css">
+</head>
+<body class="text-center">
+    <style>
+        select {
+            width: 200px;
+        }
+        tr {
+            height: 10px;
+        }
+        td {
+            width: 5px;
+            height: 5px;
+        }
+    </style>
+    <h1>Pizzas</h1>
+    <button data-bs-toggle="modal" data-bs-target="#new">Agregar Tamaño</button>
+    <table class="table w-50 m-auto">
+        <tr>
+            <td><h2>Tamaño</h2></td>
+            <td><h2>Cantidad</h2></td>
+        </tr>
+        <tr>
+            <td>
+                <select id="pro1"></select>
+            </td>
+            <td>
+                <input type="range" id="cantidad" min="1" max="10" value="1"><p id="can">1</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div id="AGP"></div>
+            </td>
+        </tr>
+        <tr>
+            <td><h2>Pizza</h2></td>
+            <td>
+                <select id="piz"></select>
+                <button data-bs-toggle="modal" data-bs-target="#newta">+</button>
+            </td>
+        </tr>
+    </table>
+    <button id="agre">Agregar</button>
+    <table class="table w-50 m-auto" id="ta">
+        <tr>
+            <td><h2>Productos</h2></td>
+            <td><h2 id="precio">Costo</h2></td>
+        </tr>
+    </table>
+    <div id="carrito">
+        <table class="table w-50 m-auto" id="tab">
+            <img height="100px" id="ima">
+        </table>
+    </div>
+    <h1 id="total"></h1>
+    <button id="pagar">Paga</button>
+
+    <div class="modal fade" id="new" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">Agregar Productos</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <input type="text" id="nom" value="nombre">
+                <input type="text" id="pre" value="precio">
+                <button id="nuevop">+</button>
+              <div id="lista"></div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+              <button type="button" class="btn btn-primary">Guardar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <div class="modal fade" id="newta" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">Tamaño</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <input type="text" id="pizza" value="nombre">
+                <button id="nuevapizza">+</button>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+              <button type="button" class="btn btn-primary">Guardar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <script src="sweetalert2.all.min.js"></script>
+    <script src="bootstrap.bundle.min.js"></script>
+    <script src="pizza.js"></script>
+</body>
+</html>

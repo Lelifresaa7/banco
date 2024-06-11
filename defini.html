@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <title>Pizzeria</title>
+</head>
+<body onload="Todo();">
+    <nav class="navbar bg-body-tertiary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">
+            <h2>Pizzeria</h2>
+          </a>
+        </div>
+      </nav>
+     <br>
+      <center>
+      <div>
+        <table class=" table table-secondary w-50">
+            <tr>
+                <td><h2>Tipo Pizza</h2></td>
+                <td><select name="selectTipo" id="selectTipo"  class="form-control"></select></td>
+                <td><button class="btn btn-primary"  data-bs-toggle="modal" data-bs-target="#ModalTipo">+</button></td>
+                <td><h2>Tamaño</h2></td>
+                <td><select name="selectTamaño" id="selectTamaño" class="form-control"></select></td>
+                <td><button  class="btn btn-primary"  data-bs-toggle="modal" data-bs-target="#ModalTamaño">+</button></td>
+            </tr>
+            <tr>
+                <td><h2>Cantidad</h2></td>
+                <td><input type="range" max="10" min="1" value="1" id="cantidad"></td>
+                <td><h3 id="vcantidad">1</h3></td>
+                <td><h2>Precio</h2></td>
+                <td><h3 id="precio">$0.00</h3></td>
+                <td><button  class="btn btn-primary" id="btnAddPizza">Agregar PIzza</button></td>
+            </tr>
+        </table>
+        <table class="table table-success">
+            <tr>
+                <td>Pizza</td>
+                <td>Tamaño</td>
+                <td>Cantidad</td>
+                <td>Precio</td>
+                <td>Importe</td>
+                <td>DEL</td>
+            </tr>
+            <tbody id="carritoPizza"></tbody>
+        </table>
+      </div>
+      </center>
+
+      <!-- Modal -->
+<div class="modal fade" id="ModalTipo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5 m-auto" id="exampleModalLabel">Agregar Pizza</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <h2>tipo de pizza</h2>
+          <input type="text" class="form-control" id="tipoPizza">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-primary" id="agregarTipo" onclick="agregarTipo()">Guardar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Modal -->
+<div class="modal fade" id="ModalTamaño" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal Tamaño</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <h2>tamaño Pizza</h2>
+          <input type="text" class="form-control" id="tamanioPizza">
+          <h2>Precio Pizza</h2>
+          <input type="number" class="form-control" id="precioPizza">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-primary" id="agregarTamaño" onclick="agregarTamaño()">Guardar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+    <script src="tivo.js"></script>
+    <script src="bootstrap.bundle.min.js"></script>
+    <script src="sweetalert2.all.min.js"></script>
+</body>
+</html>

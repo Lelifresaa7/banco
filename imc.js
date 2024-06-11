@@ -23,6 +23,7 @@ res.innerHTML="<img src='/246749aa1d9d2f9189c4b2007ee65da2.gif' width=60 height=
     if (imc<18.5) {
       p1.style.transform="scale(1.2)";
       
+      
     } else{
       p1.style.transform="scale(1)";
     }

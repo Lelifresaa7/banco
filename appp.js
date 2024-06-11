@@ -161,6 +161,7 @@ const pagarr=async()=>{
 
 
 
+
  const verProductos=()=>{
    let divListaProductos=document.getElementById("listaProductos");
    let tablaHTML= `<table class="table w-100 m-auto">

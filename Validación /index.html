@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="estilo2.css" />
+      <link rel="stylesheet" href="/bootstrap.min.css">
+    <title>Document</title>
+  </head>
+  <body class="text-center">
+      <br><br><br />
+    <div id="li">
+        <br><br><br />
+      <form action="" id="form">
+       
+          <h1>REGISTRO</h1>
+          
+          <h3>Usuario</h3>
+          
+          
+         <center>
+              <input id="username" name="username" type="text" placeholder="Ingresa tu nombre de usu" class="form-control w-50" onkeypress="validarUsu()">
+
+
+          <div class="error"></div>
+
+       
+             <div class="box">
+        
+         <h3>Correo</h3>
+          <input id="email" name="email" type="text" placeholder="Ingresa tu correo" class="form-control w-50" onkeypress="validarCorreo">
+          <div class="error"></div>
+          <br>
+      </div>
+        <div class="box">
+<h3>Contraseña</h3>
+          <input id="password" name="password" type="password" placeholder="Ingresa una contraseña" class="form-control w-50" onkeypress="validarCont">
+          <div class="error"></div>
+          <br>
+          
+        </div>
+        <div class="box">
+<h3>Confirma contraseña</h3>
+          <input id="psw" name="psw" type="password" placeholder="Confirma tu contraseña " class="form-control w-50" onkeypress="validarCont2">
+          <div class="error"></div>
+          <br>
+        </div>
+         </center> 
+       
+        <button type="submit" id="btn" class="btn btn-primary w-50" >Registrar</button>
+        <br>
+        <div class="link">
+          <a href="login.html">Inicio</a>
+        </div>
+      </form>
+    </div>
+    <script src="sweetalert2.all.min.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="bootstrap.min.css">
+  <title>Productos</title>
+</head>
+<body>
+  
+    <nav class="navbar navbar-light bg-light">
+    <div class="container-fluid text-center">
+        <h1 class="navbar-brand m-auto text-dark">Leli y Vic</h1>
+    </div>
+</nav>
+
+    <div class="container-fluid w-75 m-auto">
+        <div class="card text-center mt-4">
+            <div class="card-headerq">
+              TIENDITA
+            </div>
+            <hr>
+            <table>
+              <tr>
+                                <td><a href="index.html"><button class="btn btn-primary w-50">Categorias</button>
+                </a>
+   </td>
+   
+             
+                
+                <td><button class="btn btn-primary w-50" data-bs-toggle="modal" data-bs-target="#Modal">Productos</td>
+              </tr>
+            </table>
+                <br>
+            <div id="res"> </div>
+            <br><br>
+           <div class="card-footer text-body-secondary">
+               Lesli y Vics
+           </div>
+        </div>
+           </div>
+           
+            <!-- Modal -->
+<div class="modal fade" id="Modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5 m-auto" id="exampleModalLabel">Agregar</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+           <form>
+            <div class="mb-3">
+                <label class="form-label">Productos</label>
+                <input type="text" class="form-control" id="nombre">
+                
+                  <label class="form-label">Precio</label>
+                <input type="text" class="form-control" id="precio">
+                  <label class="form-label">Categorias</label>
+                  <select name="categoria" id="categoria" class="form-control">categoria</select>
+                
+            </div>
+           </form>
+          
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-primary" id="guardar">Guardar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+    <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5 m-auto" id="editModalLabel">Editar Producto</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label class="form-label">Productos</label>
+              <input type="text" class="form-control" id="editNombre">
+              <label class="form-label">Precio</label>
+              <input type="text" class="form-control" id="editPrecio">
+              <label class="form-label">Categorías</label>
+              <select name="editCategoria" id="editCategoria" class="form-control"></select>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-primary" id="guardarEdit">Guardar Cambios</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="prod.js"></script>
+  <script src="bostrap.min.bucle.js"></script>
+
+</body>
+
+</html>

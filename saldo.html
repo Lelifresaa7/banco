@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../examen2/bootstrap-5.3.3-dist/css/bootstrap.min.css">
+</head>
+<style>
+    #cargo{
+        width: 200px;
+    }
+    #sal{
+        background-color: white;
+    }
+</style>
+<body>
+    <body class="text-center">
+
+            <center>
+            <table class="table w-75 m-auto" >
+                <tr>
+                    <td>Cargo</td>
+                    <td><select name="grupo" id="cargo" class="form-control w-50 m-auto">
+                     
+                      <option value="Secretaria">Secretaria</option>
+                      <option value="Gerente">Gerente</option>
+                      <option value="Cajero">Cajero</option>
+                    </select></td>
+                    <td></td>
+                    <td>Horas</td>
+                    <td><input type="range" min="1" max="50" value="1" class="form-control" id="horas"></td>
+                    <td><div id="h">1</div></td>
+                    <td>Antiguedad</td>
+                    <td><input type="range" min="1" max="30" value="1" class="form-control" id="anti"></td>
+                    <td><div id="an">1</div></td>
+                </tr>
+            </table>
+            <table class="table w-75 m-auto" id="sal">
+                <tr>
+                    <td><strong>Percepciones</strong></td>
+                    <td></td>
+                    <td><strong>Deducciones</strong></td>
+                    <td></td>
+                </tr>
+                <tr>
+                <td>Sueldo Base</td>
+                <td id="sb"></td>
+                <td>ISR</td>
+                <td id="isr"></td>
+                </tr>
+                <tr>
+                    <td>Canasta Basiac</td>
+                    <td id="cb"></td>
+                    <td>Servicio Salvo</td>
+                <td id="ss"></td>
+                </tr>
+                <tr>
+                    <td>Antiguedad</td>
+                    <td id="antiguedad"></td>
+                    <td>Afore</td>
+                <td id="af"></td>
+                </tr>
+                <tr>
+                    <td>Puntualidad</td>
+                    <td id="puntu"></td>
+                    <td>Sindicato</td>
+                <td id="sin"></td>
+                </tr>
+                <tr>
+                    <td>Eficiencia</td>
+                    <td id="efic"></td>
+                    <td></td>
+                <td></td>
+                </tr>
+                <tr>
+                    <td>Total Percepciones</td>
+                    <td id="totper"></td>
+                    <td>Total Deducciones</td>
+                <td id="totde"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td ></td>
+                    <td><strong>Salario Neto</strong></td>
+                <td id="sn"></td>
+                </tr>
+            </table>
+        </center>
+    <script src="apps.js"></script>
+</body>
+</html>
